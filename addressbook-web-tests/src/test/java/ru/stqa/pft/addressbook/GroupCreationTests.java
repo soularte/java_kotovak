@@ -30,7 +30,7 @@ public class GroupCreationTests {
     login("admin", "secret");
   }
 
-  private void login(String username, String password) {
+  public void login(String username, String password) {
     wd.findElement(By.name("user")).click();
     wd.findElement(By.name("user")).clear();
     wd.findElement(By.name("user")).sendKeys(username);
@@ -47,6 +47,10 @@ public class GroupCreationTests {
     fillGroupForm(new GroupData("Test1", "Test2", "Test3"));
     submitGroupCreation();
     returnToGroupPage();
+  }
+
+  private void gotoGroupPage() {
+    wd.findElement(By.linkText("groups")).click();
   }
 
   private void returnToGroupPage() {
@@ -71,10 +75,6 @@ public class GroupCreationTests {
 
   private void initializeGroupCreation() {
     wd.findElement(By.name("new")).click();
-  }
-
-  private void gotoGroupPage() {
-    wd.findElement(By.linkText("groups")).click();
   }
 
   @AfterMethod
