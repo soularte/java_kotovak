@@ -29,10 +29,19 @@ public class GroupHelper extends HelperBase {
   }
 
   public void deleteSelectedGroups() {
-      wd.findElement(By.xpath("//div[@id='content']/form/input[5]")).click();
+      click(By.xpath("//div[@id='content']/form/input[5]"));
   }
 
   public void selectGroup() {
     click(By.name("selected[]"));
   }
+
+  public void initializeGroupModification() {
+    click(By.name("edit"));
+  }
+
+  public void submitGroupModification() {
+    click(By.name("update"));
+  }
+
 }
