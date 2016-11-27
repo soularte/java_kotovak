@@ -1,29 +1,18 @@
-package ru.stqa.pft.addressbook;
+package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import ru.stqa.pft.addressbook.model.GroupData;
 
 import java.util.concurrent.TimeUnit;
 
-public class GroupCreationTests {
-
+/**
+ * Created by home on 27.11.2016.
+ */
+public class ApplicationManager {
   FirefoxDriver wd;
 
-  public static boolean isAlertPresent(FirefoxDriver wd) {
-    try {
-      wd.switchTo().alert();
-      return true;
-    } catch (NoAlertPresentException e) {
-      return false;
-    }
-  }
-
-  @BeforeMethod
-  public void setUp() throws Exception {
+  public void init() {
     wd = new FirefoxDriver();
     wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
     wd.get("http://localhost/addressbook/");
@@ -40,28 +29,19 @@ public class GroupCreationTests {
     wd.findElement(By.xpath("//form[@id='LoginForm']/input[3]")).click();
   }
 
-  @Test
-  public void testGroupCreation() {
-    gotoGroupPage();
-    initializeGroupCreation();
-    fillGroupForm(new GroupData("Test1", "Test2", "Test3"));
-    submitGroupCreation();
-    returnToGroupPage();
-  }
-
-  private void gotoGroupPage() {
+  public void gotoGroupPage() {
     wd.findElement(By.linkText("groups")).click();
   }
 
-  private void returnToGroupPage() {
+  public void returnToGroupPage() {
     wd.findElement(By.linkText("group page")).click();
   }
 
-  private void submitGroupCreation() {
+  public void submitGroupCreation() {
     wd.findElement(By.name("submit")).click();
   }
 
-  private void fillGroupForm(GroupData groupData) {
+  public void fillGroupForm(GroupData groupData) {
     wd.findElement(By.name("group_name")).click();
     wd.findElement(By.name("group_name")).clear();
     wd.findElement(By.name("group_name")).sendKeys(groupData.getGroupName());
@@ -73,12 +53,19 @@ public class GroupCreationTests {
     wd.findElement(By.name("group_footer")).sendKeys(groupData.getGroupFooter());
   }
 
-  private void initializeGroupCreation() {
+  public void initializeGroupCreation() {
     wd.findElement(By.name("new")).click();
   }
 
-  @AfterMethod
-  public void tearDown() {
+  public void stop() {
     wd.quit();
+  }
+
+  public void deleteSelectedGroups() {
+      wd.findElement(By.xpath("//div[@id='content']/form/input[5]")).click();
+  }
+
+  public void selectGroup() {
+      wd.findElement(By.name("selected[]")).click();
   }
 }

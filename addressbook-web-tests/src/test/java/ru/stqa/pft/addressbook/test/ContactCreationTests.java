@@ -1,10 +1,11 @@
-package ru.stqa.pft.addressbook;
+package ru.stqa.pft.addressbook.test;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import ru.stqa.pft.addressbook.model.ContactData;
 
 import java.util.concurrent.TimeUnit;
 
@@ -30,7 +31,7 @@ public class ContactCreationTests {
   }
 
   @Test
-  public void ContactCreationTests() {
+  public void testContactCreation() {
     goToContactCreationPage();
     fillContactCreationForm(new ContactData("TestName1", "TestMiddleName1", "TestLastName1", "TestAddress1", "TestMobile1", "TestEmail1"));
     submitContactCreation();
