@@ -17,9 +17,7 @@ public class ContactData {
     this.testEmail = testEmail;
   }
 
-  public String getTestName() {
-    return testName;
-  }
+  public String getTestName() {return testName; }
 
   public String getTestMiddleName() {
     return testMiddleName;

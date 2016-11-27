@@ -9,7 +9,7 @@ import ru.stqa.pft.addressbook.model.ContactData;
 
 import java.util.concurrent.TimeUnit;
 
-public class ContactCreationTests {
+public class ContactCreationTests extends TestBase {
   FirefoxDriver wd;
 
   @BeforeMethod
