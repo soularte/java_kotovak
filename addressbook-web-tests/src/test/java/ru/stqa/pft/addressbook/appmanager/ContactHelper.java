@@ -20,21 +20,31 @@ public class ContactHelper extends HelperBase {
   }
 
   public void submitContactCreation() {
-    click(By.xpath("//div[@id='content']/form/input[21]"));
+    //   click(By.xpath("//div[@id='content']/form/input[21]"));
+    click(By.xpath("//input[@name='submit'][1]"));
   }
 
-  public void selectContact()  {
-    click(By.name("selected[]"));
+  public void selectContact() {
+//    click(By.name("selected[]"));
+    click(By.xpath("//input[@name='selected[]'][1]"));
   }
 
-  public void delecteSelectedContacts() { click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));}
+  public void delecteSelectedContacts() {
+//    click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
+    click(By.xpath("//input[@value='Delete']"));
+  }
 
   public void alertAccept() {
-      wd.switchTo().alert().accept();
+    wd.switchTo().alert().accept();
   }
 
-  public void pressContactEdit() {click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));}
+  public void pressContactEdit() {
+//    click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
+    click(By.xpath("//input[@title='Edit']"));
+  }
 
-  public void submitContactModification() { click(By.xpath("//div[@id='content']/form[1]/input[22]"));
+  public void submitContactModification() {
+//    click(By.xpath("//div[@id='content']/form[1]/input[22]"));
+    click(By.xpath("//input[@name='update'][1]"));
   }
 }
