@@ -27,8 +27,7 @@ public class ContactHelper extends HelperBase {
     click(By.name("selected[]"));
   }
 
-  public void delecteSelectedContacts() { click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
-  }
+  public void delecteSelectedContacts() { click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));}
 
   public void alertAccept() {
       wd.switchTo().alert().accept();
