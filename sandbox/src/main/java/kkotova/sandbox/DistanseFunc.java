@@ -8,8 +8,6 @@ public class DistanseFunc {
     Point p2 = new Point(8, 12);
     System.out.println("Вторая точка " + p2.x + ", " + p2.y);
     System.out.println("Расстояние между двумя точками " + distance(p1, p2));
-//    Point r = new Point(10, 20);
-// //System.out.println("Расстояние между двумя точками " + r.distance());
   }
 
   public static double distance(Point p1, Point p2) {
