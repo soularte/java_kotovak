@@ -6,23 +6,26 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class HelperBase {
-  protected WebDriver wd;
+
+  private WebDriver wd;
 
   public HelperBase(WebDriver wd) {
     this.wd = wd;
   }
 
   public void click(By locator) {
-    wd.findElement(locator).click();
+    WebElement e = find(locator);
+    e.click();
   }
 
-  public void find(By locator) { WebElement element = wd.findElement(locator);}
+  public WebElement find(By locator) {
+    return wd.findElement(locator);
+  }
 
   public void type(By locator, String text) {
-    find(locator);
-//  wd.findElement(locator).click();
-    wd.findElement(locator).clear();
-    wd.findElement(locator).sendKeys(text);
+    WebElement e = find(locator);
+    e.clear();
+    e.sendKeys(text);
   }
 
   public boolean isAlertPresent() {
@@ -32,5 +35,10 @@ public class HelperBase {
     } catch (NoAlertPresentException e) {
       return false;
     }
+  }
+
+  public void alertAccept() {
+    wd.switchTo().alert().accept();
+    find(By.tagName("body"));
   }
 }

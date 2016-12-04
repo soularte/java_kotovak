@@ -21,7 +21,8 @@ public class ContactHelper extends HelperBase {
 
   public void submitContactCreation() {
     //   click(By.xpath("//div[@id='content']/form/input[21]"));
-    click(By.xpath("//input[@name='submit'][1]"));
+    //click(By.xpath("//input[@name='submit'][1]"));
+    click(By.xpath("//*[@id='content']/*/input[@value='Enter']"));
   }
 
   public void selectContact() {
@@ -32,10 +33,6 @@ public class ContactHelper extends HelperBase {
   public void delecteSelectedContacts() {
 //    click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
     click(By.xpath("//input[@value='Delete']"));
-  }
-
-  public void alertAccept() {
-    wd.switchTo().alert().accept();
   }
 
   public void pressContactEdit() {
