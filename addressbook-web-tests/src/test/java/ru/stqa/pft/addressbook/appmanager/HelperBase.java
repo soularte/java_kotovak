@@ -24,8 +24,13 @@ public class HelperBase {
 
   public void type(By locator, String text) {
     WebElement e = find(locator);
+//    if (text != null) {
+//      String existingText = e.getAttribute("value");
+//      if (!text.equals(existingText)) {
     e.clear();
     e.sendKeys(text);
+//      }
+//    }
   }
 
   public boolean isAlertPresent() {
@@ -41,4 +46,5 @@ public class HelperBase {
     wd.switchTo().alert().accept();
     find(By.tagName("body"));
   }
+
 }
