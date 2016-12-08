@@ -25,7 +25,9 @@ public class ContactData {
     this.testgroup = testgroup;
   }
 
-  public String getTestName() {return testName; }
+  public String getTestName() {
+    return testName;
+  }
 
   public String getTestMiddleName() {
     return testMiddleName;

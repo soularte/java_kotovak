@@ -1,6 +1,6 @@
 package ru.stqa.pft.addressbook.appmanager;
 
-import org.junit.Assert;
+import org.testng.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -56,11 +56,9 @@ public class ContactHelper extends HelperBase {
 
   public void createContact(ContactData contactData, boolean creation) {
     click(By.linkText("add new"));
-//    app.getNavigationHelper().goToContactCreationPage();
     fillContactCreationForm(contactData, true);
     submitContactCreation();
     click(By.linkText("home"));
-//    app.getNavigationHelper().goToHomePage();
   }
 
 

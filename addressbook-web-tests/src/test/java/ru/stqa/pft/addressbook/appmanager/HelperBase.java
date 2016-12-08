@@ -21,11 +21,11 @@ public class HelperBase {
 
   public void type(By locator, String text) {
     WebElement e = find(locator);
- if (text != null) {
-     String existingText = e.getAttribute("value");
+    if (text != null) {
+      String existingText = e.getAttribute("value");
       if (!text.equals(existingText)) {
-    e.clear();
-    e.sendKeys(text);
+        e.clear();
+        e.sendKeys(text);
       }
     }
   }
