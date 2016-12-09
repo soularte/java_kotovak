@@ -61,7 +61,6 @@ public class ContactHelper extends HelperBase {
     click(By.linkText("home"));
   }
 
-
   public boolean isThereAContact() {
     return IsElementPresent(By.xpath("//input[@name='selected[]'][1]"));
   }
