@@ -4,7 +4,7 @@ import org.openqa.selenium.*;
 
 public class HelperBase {
 
-  private WebDriver wd;
+  public WebDriver wd;
 
   public HelperBase(WebDriver wd) {
     this.wd = wd;
