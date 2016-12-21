@@ -13,12 +13,12 @@ public class ContactCreationTests extends TestBase {
   public void testContactCreation() {
     List<ContactData> before = app.getContactHelper().getContactList();
     app.goTo().goToContactCreationPage();
-    ContactData contact = new ContactData("TestName1",
-            "TestMiddleName1",
+    ContactData contact = new ContactData(null,
+            null,
             "TestLastName1",
-            "TestAddress",
-            "TestMobile1",
-            "TestEmail1",
+            null,
+            null,
+            null,
             "Test1");
     app.getContactHelper().fillContactCreationForm(contact, true);
     app.getContactHelper().submitContactCreation();
