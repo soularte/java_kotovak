@@ -30,6 +30,8 @@ public class ContactHelper extends HelperBase {
     }
   }
 
+
+
   public void submitContactCreation() {
     //   click(By.xpath("//div[@id='content']/form/input[21]"));
     //click(By.xpath("//input[@name='submit'][1]"));
@@ -75,7 +77,7 @@ public class ContactHelper extends HelperBase {
 
   public List<ContactData> getContactList() {
     List<ContactData> contacts = new ArrayList<ContactData>();
-    List<WebElement> elements = wd.findElements(By.name("selected[]"));
+    List<WebElement> elements = wd.findElements(By.name("entry"));
     for (WebElement element : elements ) {
       String name = element.getText();
       int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
@@ -85,3 +87,4 @@ public class ContactHelper extends HelperBase {
     return contacts;
   }
 }
+
