@@ -9,7 +9,7 @@ import java.util.List;
 
 public class ContactModificationTests extends TestBase {
 
-  @Test(enabled = false)
+  @Test
   public void testContactModification() {
 
     if (!app.getContactHelper().isThereAContact()) {
@@ -22,13 +22,13 @@ public class ContactModificationTests extends TestBase {
               "Test1"), true);
     }
     List<ContactData> before = app.getContactHelper().getContactList();
-    ContactData contact = new ContactData(before.get(before.size() - 1).getId(), "TestName2",
-            "TestMiddleName2",
-            "TestLastName2",
-            "TestAddress2",
-            "TestMobile2",
-            "TestEmail2",
-            "Test2");
+    ContactData contact = new ContactData(before.get(before.size() - 1).getId(), null,
+            null,
+            "TestLastName1",
+            null,
+            null,
+            null,
+            "Test1");
     app.getContactHelper().pressContactEdit(before.size() - 1);
     app.getContactHelper().fillContactCreationForm(contact, false);
     app.getContactHelper().submitContactModification();
