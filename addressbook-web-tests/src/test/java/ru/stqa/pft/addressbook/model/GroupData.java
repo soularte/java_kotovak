@@ -2,37 +2,31 @@ package ru.stqa.pft.addressbook.model;
 
 public class GroupData {
 
-  private int id;
-  private final String groupName;
-  private final String groupHeader;
-  private final String groupFooter;
+  private int id = Integer.MAX_VALUE;
+  private String groupName;
+  private String groupHeader;
+  private String groupFooter;
 
+  public int getId() { return id; }
 
-  public GroupData(String groupName, String groupHeader, String groupFooter) {
-    this.id = Integer.MAX_VALUE;
-
-    this.groupName = groupName;
-    this.groupHeader = groupHeader;
-    this.groupFooter = groupFooter;
-  }
-
-  public GroupData(int id, String groupName, String groupHeader, String groupFooter) {
+  public GroupData withId(int id) {
     this.id = id;
+    return this;
+  }
+
+  public GroupData withName(String groupName) {
     this.groupName = groupName;
+    return this;
+  }
+
+  public GroupData withHeader(String groupHeader) {
     this.groupHeader = groupHeader;
+    return this;
+  }
+
+  public GroupData withFooter(String groupFooter) {
     this.groupFooter = groupFooter;
-  }
-
-  public void setId(int id) {
-    this.id = id;
-  }
-
-  @Override
-  public String toString() {
-    return "GroupData{" +
-            "id='" + id + '\'' +
-            ", groupName='" + groupName + '\'' +
-            '}';
+    return this;
   }
 
   @Override
@@ -42,16 +36,25 @@ public class GroupData {
 
     GroupData groupData = (GroupData) o;
 
+    if (id != groupData.id) return false;
     return groupName != null ? groupName.equals(groupData.groupName) : groupData.groupName == null;
 
   }
 
   @Override
   public int hashCode() {
-    return groupName != null ? groupName.hashCode() : 0;
+    int result = id;
+    result = 31 * result + (groupName != null ? groupName.hashCode() : 0);
+    return result;
   }
 
-  public int getId() { return id; }
+  @Override
+  public String toString() {
+    return "GroupData{" +
+            "id='" + id + '\'' +
+            ", groupName='" + groupName + '\'' +
+            '}';
+  }
 
   public String getGroupName() {
     return groupName;

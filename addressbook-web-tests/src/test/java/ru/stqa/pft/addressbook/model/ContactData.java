@@ -1,52 +1,16 @@
 package ru.stqa.pft.addressbook.model;
 
 public class ContactData {
-  private int id;
-  private final String testName;
-  private final String testMiddleName;
-  private final String testLastName;
-  private final String testAddress;
-  private final String testMobile;
-  private final String testEmail;
-  private String testgroup;
+  private int id = Integer.MAX_VALUE;
+  private String testName;
+  private String testMiddleName;
+  private String testLastName;
+  private String testAddress;
+  private String testMobile;
+  private String testEmail;
+  private String testGroup;
 
-  public ContactData(int id,
-          String testName,
-                     String testMiddleName,
-                     String testLastName,
-                     String testAddress,
-                     String testMobile1,
-                     String testEmail,
-                     String testgroup) {
-   this.id = id;
-    this.testName = testName;
-    this.testMiddleName = testMiddleName;
-    this.testLastName = testLastName;
-    this.testAddress = testAddress;
-    this.testMobile = testMobile1;
-    this.testEmail = testEmail;
-    this.testgroup = testgroup;
-  }
-
-  public ContactData(String testName,
-                     String testMiddleName,
-                     String testLastName,
-                     String testAddress,
-                     String testMobile1,
-                     String testEmail,
-                     String testgroup) {
-    this.id = 0;
-    this.testName = testName;
-    this.testMiddleName = testMiddleName;
-    this.testLastName = testLastName;
-    this.testAddress = testAddress;
-    this.testMobile = testMobile1;
-    this.testEmail = testEmail;
-    this.testgroup = testgroup;
-  }
-
-
-  public void setId(int id) {
+  public void id(int id) {
     this.id = id;
   }
 
@@ -79,7 +43,47 @@ public class ContactData {
   }
 
   public String getTestGroup() {
-    return testgroup;
+    return testGroup;
+  }
+
+  public ContactData withId(int id) {
+    this.id = id;
+    return this;
+  }
+
+  public ContactData withTestName(String testName) {
+    this.testName = testName;
+    return this;
+  }
+
+  public ContactData withTestMiddleName(String testMiddleName) {
+    this.testMiddleName = testMiddleName;
+    return this;
+  }
+
+  public ContactData withTestLastName(String testLastName) {
+    this.testLastName = testLastName;
+    return this;
+  }
+
+  public ContactData withTestAddress(String testAddress) {
+    this.testAddress = testAddress;
+    return this;
+  }
+
+  public ContactData withTestMobile(String testMobile) {
+    this.testMobile = testMobile;
+    return this;
+  }
+
+  public ContactData withTestEmail(String testEmail) {
+    this.testEmail = testEmail;
+    return this;
+  }
+
+  public ContactData withTestgroup(String testgroup) {
+    this.testGroup = testgroup;
+    return this;
   }
 
   @Override
