@@ -60,7 +60,7 @@ public class ContactHelper extends HelperBase {
 
   public void create(ContactData contactData, boolean creation) {
     click(By.linkText("add new"));
-    fillContactCreationForm(contactData, true);
+    fillContactCreationForm(contactData, creation);
     submitContactCreation();
     contactCache = null;
     click(By.linkText("home"));
@@ -90,7 +90,7 @@ public class ContactHelper extends HelperBase {
     return IsElementPresent(By.xpath("//input[@name='selected[]'][1]"));
   }
 
-  public int getContactCount() {
+  public int count() {
     return wd.findElements(By.xpath("//input[@name='selected[]']")).size();
   }
 
