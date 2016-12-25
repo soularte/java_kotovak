@@ -13,7 +13,7 @@ public class ContactCreationTests extends TestBase {
     Contacts before = app.contact().all();
     ContactData contact = new ContactData().
             withTestLastName("TestLastName1").
-            withTestgroup("Test1");
+            withTestGroup("Test1");
     app.contact().create(contact, true);
     Contacts after = app.contact().all();
     assertThat(after.size(), equalTo(before.size() + 1));
@@ -26,7 +26,7 @@ public class ContactCreationTests extends TestBase {
     Contacts before = app.contact().all();
     ContactData contact = new ContactData().
             withTestName("'''").
-            withTestgroup("Test1");
+            withTestGroup("Test1");
     app.contact().create(contact, true);
     assertThat(app.contact().count(), equalTo(before.size()));
     Contacts after = app.contact().all();

@@ -15,7 +15,7 @@ public class ContactModificationTests extends TestBase {
     if (!app.contact().isThereAContact()) {
       app.contact().create(new ContactData().
               withTestLastName("TestLastName1").
-              withTestgroup("Test1"), true);
+              withTestGroup("Test1"), true);
     }
   }
 
@@ -27,7 +27,7 @@ public class ContactModificationTests extends TestBase {
     ContactData contact = new ContactData().
             withId(modifiedContact.getId()).
             withTestLastName("TestLastName1").
-            withTestgroup("Test1");
+            withTestGroup("Test1");
     app.contact().modify(index, contact);
     assertThat(app.contact().count(), equalTo(before.size()));
     Contacts after = app.contact().all();

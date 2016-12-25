@@ -6,9 +6,16 @@ public class ContactData {
   private String testMiddleName;
   private String testLastName;
   private String testAddress;
+  private String testHome;
   private String testMobile;
+  private String testWork;
   private String testEmail;
+  private String testEmail1;
+  private String testEmail2;
   private String testGroup;
+  private String allPhones;
+  private String allAddresses;
+  private String allEmails;
 
   public void id(int id) {
     this.id = id;
@@ -34,16 +41,44 @@ public class ContactData {
     return testAddress;
   }
 
+  public String getTestHome() {
+    return testHome;
+  }
+
   public String getTestMobile() {
     return testMobile;
+  }
+
+  public String getTestWork() {
+    return testWork;
   }
 
   public String getTestEmail() {
     return testEmail;
   }
 
+  public String getTestEmail1() {
+    return testEmail1;
+  }
+
+  public String getTestEmail2() {
+    return testEmail2;
+  }
+
   public String getTestGroup() {
     return testGroup;
+  }
+
+  public String getAllPhones() {
+    return allPhones;
+  }
+
+  public String getAllAddresses() {
+    return allAddresses;
+  }
+
+  public String getAllEmails() {
+    return allEmails;
   }
 
   public ContactData withId(int id) {
@@ -71,8 +106,18 @@ public class ContactData {
     return this;
   }
 
+  public ContactData withTestHome(String testHome) {
+    this.testHome = testHome;
+    return this;
+  }
+
   public ContactData withTestMobile(String testMobile) {
     this.testMobile = testMobile;
+    return this;
+  }
+
+  public ContactData withTestWork(String testWork) {
+    this.testWork = testWork;
     return this;
   }
 
@@ -81,8 +126,33 @@ public class ContactData {
     return this;
   }
 
-  public ContactData withTestgroup(String testgroup) {
-    this.testGroup = testgroup;
+  public ContactData withTestEmail1(String testEmail1) {
+    this.testEmail1 = testEmail1;
+    return this;
+  }
+
+  public ContactData withTestEmail2(String testEmail2) {
+    this.testEmail2 = testEmail2;
+    return this;
+  }
+
+  public ContactData withAllPhones(String allPhones) {
+    this.allPhones = allPhones;
+    return this;
+  }
+
+  public ContactData withAllAddresses(String allAddresses) {
+    this.allAddresses = allAddresses;
+    return this;
+  }
+
+  public ContactData withAllEmails(String allEmails) {
+    this.allEmails = allEmails;
+    return this;
+  }
+
+  public ContactData withTestGroup(String testGroup) {
+    this.testGroup = testGroup;
     return this;
   }
 

@@ -15,7 +15,7 @@ public class ContactDeletionTests extends TestBase {
     if (!app.contact().isThereAContact()) {
       app.contact().create(new ContactData().
               withTestLastName("TestLastName1").
-              withTestgroup("Test1"), true);
+              withTestGroup("Test1"), true);
     }
   }
 
