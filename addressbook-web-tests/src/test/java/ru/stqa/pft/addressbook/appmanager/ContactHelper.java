@@ -7,9 +7,12 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
+import ru.stqa.pft.addressbook.test.ContactPhoneTests;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ContactHelper extends HelperBase {
 
@@ -78,10 +81,15 @@ public class ContactHelper extends HelperBase {
     wd.findElement(By.cssSelector(String.format("a[href='edit.php?id=%s']", id))).click();
   }
 
+  public void viewById(int id) {
+    wd.findElement(By.cssSelector(String.format("a[href='view.php?id=%s']", id))).click();
+  }
+
   public ContactData infoFromEditForm(ContactData contact) {
     modifyById(contact.getId());
     String testName = find(By.name("firstname")).getAttribute("value");
     String testLastName = find(By.name("lastname")).getAttribute("value");
+    String testMiddleName = find(By.name("middlename")).getAttribute("value");
     String testHome = find(By.name("home")).getAttribute("value");
     String testMobile = find(By.name("mobile")).getAttribute("value");
     String testWork = find(By.name("work")).getAttribute("value");
@@ -93,6 +101,7 @@ public class ContactHelper extends HelperBase {
     return new ContactData().
             withId(contact.getId()).
             withTestName(testName).
+            withTestMiddleName(testMiddleName).
             withTestLastName(testLastName).
             withTestHome(testHome).
             withTestMobile(testMobile).
@@ -164,7 +173,6 @@ public class ContactHelper extends HelperBase {
     }
     return new Contacts(contactCache);
   }
-
 
 
 }
