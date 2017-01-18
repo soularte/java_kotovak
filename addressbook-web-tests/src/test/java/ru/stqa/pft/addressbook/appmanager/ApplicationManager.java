@@ -24,6 +24,7 @@ public class ApplicationManager {
   private NavigationHelper navigationHelper;
   private GroupHelper groupHelper;
   private String browser;
+  private DbHelper dbHelper;
 
 
   public ApplicationManager() {
@@ -52,7 +53,7 @@ public class ApplicationManager {
     navigationHelper = new NavigationHelper(wd);
     sessionHelper = new SessionHelper(wd);
     sessionHelper.login(properties.getProperty("Web.adminLogin"), (properties.getProperty("Web.adminPassword")));
-
+    dbHelper = new DbHelper();
   }
 
   public void stop() {
@@ -69,5 +70,9 @@ public class ApplicationManager {
 
   public ContactHelper contact() {
     return contactHelper;
+  }
+
+  public DbHelper db() {
+    return dbHelper;
   }
 }
