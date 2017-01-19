@@ -10,22 +10,22 @@ import static org.testng.Assert.assertEquals;
 
 public class ContactDeletionTests extends TestBase {
 
-  @BeforeMethod
-  public void ensurePreconditions() {
-    if (app.db().contacts().size() == 0) {
-      app.contact().create(new ContactData().
-              withTestLastName("TestLastName1").
-              withTestGroup("test1"), true);
-    }
-  }
+//  @BeforeMethod
+//  public void ensurePreconditions() {
+//    if (app.db().contacts().size() == 0) {
+//      app.contact().create(new ContactData().
+//             withTestLastName("TestLastName1").
+//             withTestGroup("test1"), true);
+//    }
+//  }
 
   @Test
   public void testContactCreation() {
-    Contacts before = app.db().contacts();
+    Contacts before = app.contact().all();
     ContactData deletedContact = before.iterator().next();
     app.contact().delete(deletedContact);
     assertThat(app.contact().count(), equalTo(before.size() - 1));
-    Contacts after = app.db().contacts();
+    Contacts after = app.contact().all();
     assertThat(after, equalTo(before.without(deletedContact)));
   }
 

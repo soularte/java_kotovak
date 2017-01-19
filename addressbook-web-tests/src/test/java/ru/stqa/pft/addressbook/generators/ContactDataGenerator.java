@@ -23,10 +23,10 @@ public class ContactDataGenerator {
   @Parameter(names = "-d", description = "Data format")
   public String format;
 
-  private void run() throws IOException {
-    List<ContactData> contacts = generateContacts(count);
-    saveAsJson(contacts);
-  }
+//  private void run() throws IOException {
+//    List<ContactData> contacts = generateContacts(count);
+//    saveAsJson(contacts);
+//  }
 
   private void saveAsJson(List<ContactData> contacts) throws IOException {
     Gson gson = new GsonBuilder().setPrettyPrinting().excludeFieldsWithoutExposeAnnotation().create();
@@ -45,17 +45,17 @@ public class ContactDataGenerator {
       JCommander.usage();
       return;
     }
-    generator.run();
+//    generator.run();
   }
 
-  private List<ContactData> generateContacts(int count) {
-    List<ContactData> contacts = new ArrayList<ContactData>();
-    for (int i = 0; i < count; i++) {
-      contacts.add(new ContactData()
-              .withTestName(String.format("TestName %s", i))
-              .withTestLastName(String.format("TestLastName %s", i))
-              .withTestGroup(String.format("TestGroup %s", i)));
-    }
-    return contacts;
-  }
+//  private List<ContactData> generateContacts(int count) {
+//    List<ContactData> contacts = new ArrayList<ContactData>();
+//    for (int i = 0; i < count; i++) {
+//      contacts.add(new ContactData()
+//              .withTestName(String.format("TestName %s", i))
+//              .withTestLastName(String.format("TestLastName %s", i))
+//              .withTestGroup(String.format("TestGroup %s", i)));
+//    }
+//    return contacts;
+//  }
 }
