@@ -175,6 +175,13 @@ public class ContactHelper extends HelperBase {
     return new Contacts(contactCache);
   }
 
+  public void contactById(int id) {
+    wd.findElement(By.cssSelector("input[value='"+id+"']")).click();
+  }
+
+  private void groupByName(String name) {
+    new Select(wd.findElement(By.name("to_group"))).selectByVisibleText(name);
+  }
 
 }
 

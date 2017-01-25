@@ -4,6 +4,7 @@ import com.google.gson.annotations.Expose;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
+import javax.xml.crypto.NodeSetData;
 import java.io.File;
 
 @Entity
