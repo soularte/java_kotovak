@@ -33,4 +33,11 @@ public class TestBase {
         driver.quit();
         driver = null;
     }
+
+    public void login(String adress, String credentials) {
+        driver.get(adress);
+        driver.findElement(By.cssSelector("input[type='text']")).sendKeys(credentials);
+        driver.findElement(By.cssSelector("input[type='password']")).sendKeys(credentials);
+        driver.findElement(By.cssSelector("button[name='login']")).click();
+    }
 }
