@@ -7,7 +7,6 @@ import java.util.List;
 public class LiteCardStikers extends TestBase {
 
     private String adress = "http://localhost/litecart/en/";
-    private Object items;
 
     @Test
     public void stikersTest() {
