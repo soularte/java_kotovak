@@ -13,7 +13,7 @@ public class LiteCardTimezones extends TestBase {
 
     @Test
     public void timeZonesOrderTest() {
-        login(adress, credentials);
+        loginAdmin(adress, credentials);
         String temp = null;
         List<WebElement> timezones = driver.findElements(By.xpath("//tr/td[5]"));
         String[] strArray = new String[timezones.size()];
@@ -26,7 +26,7 @@ public class LiteCardTimezones extends TestBase {
 
     @Test
     public void timeZonesNotNullTest() {
-        login(adress, credentials);
+        loginAdmin(adress, credentials);
         List<WebElement> rows = driver.findElements(By.xpath("//tr/td[6]"));
         for (int i = 2; i < rows.size(); i++) {
             WebElement element = driver.findElement(By.xpath("//tr[" + i + "]/td[6]"));
@@ -48,7 +48,7 @@ public class LiteCardTimezones extends TestBase {
 
     @Test
     public void timeGeoZonesTest() {
-        login(geo, credentials);
+        loginAdmin(geo, credentials);
         List<WebElement> rows = driver.findElements(By.xpath("//tr/td[3]/a"));
         driver.findElement(By.xpath("//tr[2]/td[3]/a")).click();
         List<WebElement> timezones = driver.findElements(By.xpath("//select[contains(@name, 'zone_code')]"));

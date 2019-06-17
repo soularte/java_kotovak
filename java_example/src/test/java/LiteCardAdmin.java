@@ -8,7 +8,7 @@ public class LiteCardAdmin extends TestBase {
 
     @Test
     public void adminTest() {
-        login(adress, credentials);
+        loginAdmin(adress, credentials);
         int numberOfLinks = driver.findElements(By.xpath("//*[@id='box-apps-menu']/li")).size();
         for (int i = 1; i <= numberOfLinks; i++) {
             driver.findElement(By.xpath("//*[@id='box-apps-menu']/li[" + i + "]/a")).click();

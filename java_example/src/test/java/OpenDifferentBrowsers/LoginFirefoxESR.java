@@ -29,7 +29,7 @@ public class LoginFirefoxESR {
         driver.get(adress);
         driver.findElement(By.cssSelector("input[type='text']")).sendKeys("admin");
         driver.findElement(By.cssSelector("input[type='password']")).sendKeys("admin");
-        driver.findElement(By.cssSelector("button[name='login']")).click();
+        driver.findElement(By.cssSelector("button[name='loginAdmin']")).click();
     }
 
     @After

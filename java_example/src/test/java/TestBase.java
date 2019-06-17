@@ -34,10 +34,17 @@ public class TestBase {
         driver = null;
     }
 
-    public void login(String adress, String credentials) {
+    public void loginAdmin(String adress, String credentials) {
         driver.get(adress);
         driver.findElement(By.cssSelector("input[type='text']")).sendKeys(credentials);
         driver.findElement(By.cssSelector("input[type='password']")).sendKeys(credentials);
+        driver.findElement(By.cssSelector("button[name='loginAdmin']")).click();
+    }
+
+    public void loginAdmin(String adress, String email, String password) {
+        driver.get(adress);
+        driver.findElement(By.cssSelector("input[type='text']")).sendKeys(email);
+        driver.findElement(By.cssSelector("input[type='password']")).sendKeys(password);
         driver.findElement(By.cssSelector("button[name='login']")).click();
     }
 }
