@@ -15,10 +15,10 @@ public class LiteCardTimezones extends TestBase {
     public void timeZonesOrderTest() {
         login(adress, credentials);
         String temp = null;
-        List<WebElement> timezones = driver.findElements(By.xpath("//tr/td[4]"));
+        List<WebElement> timezones = driver.findElements(By.xpath("//tr/td[5]"));
         String[] strArray = new String[timezones.size()];
         for (int i = 0; i < timezones.size(); i++) {
-            timezones = driver.findElements(By.xpath("//tr/td[4]"));
+            timezones = driver.findElements(By.xpath("//tr/td[5]"));
             strArray[i] = timezones.get(i).getText();
         }
         check(strArray);
@@ -33,11 +33,11 @@ public class LiteCardTimezones extends TestBase {
             int value = Integer.parseInt(element.getAttribute("textContent"));
             if (value > 0) {
                 driver.findElement(By.xpath("//tr[" + i + "]/td[7]")).click();
-                List<WebElement> timezones = driver.findElements(By.xpath("//input[contains(@name, 'code')]"));
+                List<WebElement> timezones = driver.findElements(By.xpath("//input[contains(@name, 'name')]"));
                 System.out.println(timezones.size());
                 String[] strArraу = new String[timezones.size()];
                 for (int a = 0; a < timezones.size(); a++) {
-                    timezones = driver.findElements(By.xpath("//input[contains(@name, 'code')]"));
+                    timezones = driver.findElements(By.xpath("//input[contains(@name, 'name')]"));
                     strArraу[a] = timezones.get(a).getAttribute("value");
                 }
                 check(strArraу);
@@ -55,7 +55,7 @@ public class LiteCardTimezones extends TestBase {
         String[] strArray = new String[timezones.size()];
         for (int a = 0; a < timezones.size(); a++) {
             timezones = driver.findElements(By.xpath("//select[contains(@name, 'zone_code')]/option[contains(@selected, 'selected')]"));
-            strArray[a] = timezones.get(a).getAttribute("value");
+            strArray[a] = timezones.get(a).getText();
         }
         check(strArray);
         driver.get(geo);
