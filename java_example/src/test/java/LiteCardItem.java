@@ -50,7 +50,7 @@ public class LiteCardItem extends TestBase {
         String itemSaleNew = driver.findElement(By.xpath("//div[@class='price-wrapper']/strong")).getTagName();
         Assert.assertEquals(itemPrice, itemPriceNew);
         Assert.assertEquals(itemPriceNew, "s");
-        Assert.assertEquals(itemSale, itemSaleNew, "strong");
+        Assert.assertEquals(itemSale, itemSaleNew);
         Assert.assertEquals(itemSaleNew, "strong");
     }
 
