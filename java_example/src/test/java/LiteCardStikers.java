@@ -11,9 +11,10 @@ public class LiteCardStikers extends TestBase {
     @Test
     public void stikersTest() {
         driver.get(adress);
-        List<WebElement> items = driver.findElements(By.xpath("//div[@class='image-wrapper']"));
+        List<WebElement> items = driver.findElements(By.xpath("//li[contains(@class, 'product')]"));
+        System.out.println(items.size());
         for (WebElement item : items) {
-            int numberOfStikers = item.findElements(By.xpath("./div[starts-with(@class, 'sticker')]")).size();
+            int numberOfStikers = item.findElements(By.xpath("./a[1]/div[1]/div[starts-with(@class, 'sticker')]")).size();
             Assert.assertEquals(1, numberOfStikers);
         }
     }
