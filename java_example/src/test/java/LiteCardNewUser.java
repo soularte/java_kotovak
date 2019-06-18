@@ -29,7 +29,7 @@ public class LiteCardNewUser extends TestBase {
     @Test
     public void loginWithNew() {
         driver.get(address);
-        String email = createRandomEmail(5, "ABCDEFJHIJKLMNOPQRSTUVWXYZ") + "@test.com";
+        String email = createRandomEmail(5, id) + "@test.com";
         createUser(email);
         loginUser(address, email, password);
         driver.findElement(By.xpath(("//div[@id='box-account']/div/ul/li[4]/a"))).click();
@@ -56,14 +56,4 @@ public class LiteCardNewUser extends TestBase {
         driver.findElement(By.xpath(("//div[@id='box-account']/div/ul/li[4]/a"))).click();
     }
 
-    public String createRandomEmail(int codeLength, String id) {
-        List<Character> temp = id.chars()
-                .mapToObj(i -> (char) i)
-                .collect(Collectors.toList());
-        Collections.shuffle(temp, new SecureRandom());
-        return temp.stream()
-                .map(Object::toString)
-                .limit(codeLength)
-                .collect(Collectors.joining());
-    }
 }

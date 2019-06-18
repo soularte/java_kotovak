@@ -5,8 +5,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 public class LiteCardNewItem extends TestBase {
 
@@ -21,17 +19,6 @@ public class LiteCardNewItem extends TestBase {
     private String curr = "EUR";
     private String keywords = "keywords";
     private String itemDescription = "Description of Item";
-    private String filePath = "C:/_project./java_kotovak/java_example/src/test/resources/";
-
-    public static String toAbsolutePath(String filePath, String maybeRelative) {
-        Path path = Paths.get(maybeRelative);
-        Path effectivePath = path;
-        if (!path.isAbsolute()) {
-            Path base = Paths.get(filePath);
-            effectivePath = base.resolve(path).toAbsolutePath();
-        }
-        return effectivePath.normalize().toString();
-    }
 
     @Test
     public void addNewItem() throws IOException {
