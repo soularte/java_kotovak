@@ -38,10 +38,10 @@ public class TestBase {
         driver.get(adress);
         driver.findElement(By.cssSelector("input[type='text']")).sendKeys(credentials);
         driver.findElement(By.cssSelector("input[type='password']")).sendKeys(credentials);
-        driver.findElement(By.cssSelector("button[name='loginAdmin']")).click();
+        driver.findElement(By.cssSelector("button[name='login']")).click();
     }
 
-    public void loginAdmin(String adress, String email, String password) {
+    public void loginUser(String adress, String email, String password) {
         driver.get(adress);
         driver.findElement(By.cssSelector("input[type='text']")).sendKeys(email);
         driver.findElement(By.cssSelector("input[type='password']")).sendKeys(password);
