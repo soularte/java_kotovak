@@ -1,8 +1,12 @@
 import org.junit.AfterClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.security.SecureRandom;
 import java.util.Collections;
@@ -27,7 +31,7 @@ public class LiteCardNewUser extends TestBase {
         driver.get(address);
         String email = createRandomEmail(5, "ABCDEFJHIJKLMNOPQRSTUVWXYZ") + "@test.com";
         createUser(email);
-        loginAdmin(address, email, password);
+        loginUser(address, email, password);
         driver.findElement(By.xpath(("//div[@id='box-account']/div/ul/li[4]/a"))).click();
     }
 
@@ -44,11 +48,10 @@ public class LiteCardNewUser extends TestBase {
         driver.findElement(By.xpath("//input[@name='phone']")).sendKeys(phone);
         driver.findElement(By.xpath("//input[@name='password']")).sendKeys(password);
         driver.findElement(By.xpath("//input[@name='confirmed_password']")).sendKeys(password);
-        driver.findElement(By.xpath("//button[@name='create_account']")).click();
-        Select zones = new Select(driver.findElement(By.xpath("//select[@name='zone_code']")));
-        zones.selectByValue(code);
-        driver.findElement(By.xpath("//input[@name='password']")).sendKeys(password);
-        driver.findElement(By.xpath("//input[@name='confirmed_password']")).sendKeys(password);
+        WebElement zones = (new WebDriverWait(driver, 10))
+                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//select[@name='zone_code']")));
+        Select zone = new Select(zones);
+        zone.selectByValue(code);
         driver.findElement(By.xpath("//button[@name='create_account']")).click();
         driver.findElement(By.xpath(("//div[@id='box-account']/div/ul/li[4]/a"))).click();
     }
