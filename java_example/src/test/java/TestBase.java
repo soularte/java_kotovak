@@ -46,11 +46,11 @@ public class TestBase {
         wait = new WebDriverWait(driver, 10);
     }
 
-//    @After
-//    public void stop() {
-//        driver.quit();
-//        driver = null;
-//    }
+    @After
+    public void stop() {
+        driver.quit();
+        driver = null;
+    }
 
     public void loginAdmin(String adress, String credentials) {
         driver.get(adress);
