@@ -3,7 +3,10 @@ import org.junit.Before;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.events.AbstractWebDriverEventListener;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -19,6 +22,29 @@ public class TestBase {
     public static WebDriverWait wait;
     public String filePath = "C:/_project./java_kotovak/java_example/src/test/resources/";
     public String id = "C:/_project./java_kotovak/java_example/src/test/resources/";
+
+    public static class MyListener extends AbstractWebDriverEventListener {
+
+        @Override
+        public void afterClickOn(WebElement element, WebDriver driver) {
+            System.out.println(element +  " clicked");
+        }
+
+        @Override
+        public void beforeClickOn(WebElement element, WebDriver driver) {
+            System.out.println(element +  " is clickable");
+        }
+
+        @Override
+        public void afterFindBy(By by, WebElement element, WebDriver driver) {
+            System.out.println(by +  " found");
+        }
+
+        @Override
+        public void onException(Throwable throwable, WebDriver driver) {
+            System.out.println(throwable);
+        }
+    }
 
     public static String toAbsolutePath(String filePath, String maybeRelative) {
         Path path = Paths.get(maybeRelative);
@@ -42,6 +68,8 @@ public class TestBase {
     @Before
     public void start() {
         driver = new ChromeDriver();
+        driver = new EventFiringWebDriver(driver);
+        ((EventFiringWebDriver) driver).register(new MyListener());
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         wait = new WebDriverWait(driver, 10);
     }
